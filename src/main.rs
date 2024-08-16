@@ -12,7 +12,6 @@ use esp_hal::system::SystemControl;
 use esp_hal::timer::timg::TimerGroup;
 use esp_hal::timer::{ErasedTimer, OneShotTimer};
 use esp_hal_procmacros::main;
-use esp_println::print;
 
 // from https://github.com/esp-rs/esp-hal/blob/main/examples/src/bin/embassy_hello_world.rs
 // When you are okay with using a nightly compiler it's better to use https://docs.rs/static_cell/2.1.0/static_cell/macro.make_static.html

@@ -1,0 +1,30 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Cortex Debug",
+            "cwd": "${workspaceFolder}",
+            "executable": "./target/riscv32imac-unknown-none-elf/debug/hello-esp32h2-embassy",
+            "request": "attach",
+            "type": "cortex-debug",
+            "runToEntryPoint": "hello_esp32h2_embassy::__risc_v_rt__main",
+            "servertype": "openocd",
+            "interface": "jtag",
+            "toolchainPrefix": "riscv32-esp32-elf",
+            "openOCDPreConfigLaunchCommands": ["set ESP_RTOS none"],
+            "serverpath": "C:/Users/cmsd2/openocd-esp32/bin/openocd.exe", //!MODIFY
+            "objdumpPath": "C:/Espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/bin/riscv32-esp-elf-objdump.exe",
+            "gdbPath": "C:/Espressif/tools/riscv32-esp-elf-gdb/14.2_20240403/riscv32-esp-elf-gdb/bin/riscv32-esp-elf-gdb.exe", //!MODIFY
+            "configFiles": ["board/esp32h2-builtin.cfg"], //!MODIFY
+            "overrideAttachCommands": [
+                "set remote hardware-watchpoint-limit 2",
+                "mon halt",
+                "flushregs"
+            ],
+            "overrideRestartCommands": ["mon reset halt", "flushregs", "c"],
+        }
+    ]
+}
